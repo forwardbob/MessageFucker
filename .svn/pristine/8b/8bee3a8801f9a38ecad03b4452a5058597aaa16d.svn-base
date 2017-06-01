@@ -1,0 +1,61 @@
+package cn.whitecao.messagefucker.bootstrap;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import cn.whitecao.messagefucker.common.Result;
+import cn.whitecao.messagefucker.service.MessageFucker;
+import cn.whitecao.messagefucker.service.eleme.ElemeFucker;
+import cn.whitecao.messagefucker.service.izhejiang.IzhejiangFucker;
+import cn.whitecao.messagefucker.service.jzsec.JzsecFucker;
+import cn.whitecao.messagefucker.service.kuwo.KuwoFucker;
+import cn.whitecao.messagefucker.service.m10086.M10086fucker;
+import cn.whitecao.messagefucker.service.ruijie.RuiJieFucker;
+import cn.whitecao.messagefucker.service.yifuw.YifuwFucker;
+
+public class StartFuck {
+	public static void main(String[] args) {
+		List<MessageFucker> list = new ArrayList<MessageFucker>();
+
+		MessageFucker ef = new ElemeFucker();
+		list.add(ef);
+
+		MessageFucker izj = new IzhejiangFucker();
+		list.add(izj);
+
+		MessageFucker jzsec = new JzsecFucker();
+		list.add(jzsec);
+
+		MessageFucker kuwo = new KuwoFucker();
+		list.add(kuwo);
+		
+		MessageFucker yifuw = new YifuwFucker();
+		list.add(yifuw);
+		
+		MessageFucker m10086 = new M10086fucker();
+		list.add(m10086);
+		
+		MessageFucker ruiFucker=new RuiJieFucker();
+		list.add(ruiFucker);
+		
+		
+		int n=0;
+		for (;;) {
+			n++;
+			System.out.println("第"+n+"轮");
+			for (MessageFucker mfList : list) {
+				try {
+					if (mfList.send("15336874885") == Result.SUCCESS) {
+						System.out.println(new Date() + ":" + mfList.getClass().getSimpleName() + "---成功");
+					} else {
+						System.out.println(new Date() + ":" + mfList.getClass().getSimpleName() + "---失败");
+					}
+					Thread.sleep(6666+6666);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+package cn.whitecao.MessageFucker;
+
+import org.junit.Test;
+
+import cn.whitecao.messagefucker.service.MessageFucker;
+import cn.whitecao.messagefucker.service.kejuwang.KejuFucker;
+import cn.whitecao.messagefucker.util.HttpUtil;
+
+public class TestKeju {
+	@Test
+	public void Test() {
+	//	String reusltString=HttpUtil.sendPost("http://www.kejuwang.com/user/sendCode/phone",
+	//			"phone=15258801811&check=20161115");
+		MessageFucker mfFucker =new KejuFucker();
+		mfFucker.send("17682442613");
+	//	System.out.println(reusltString);
+	}
+}

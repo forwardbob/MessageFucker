@@ -1,0 +1,15 @@
+package cn.whitecao.MessageFucker;
+
+import org.junit.Test;
+
+import cn.whitecao.messagefucker.common.UrlConsts;
+import cn.whitecao.messagefucker.service.MessageFucker;
+import cn.whitecao.messagefucker.service.ruijie.RuiJieFucker;
+
+public class TestRuiJie {
+	@Test
+	public void test() {
+		MessageFucker mfFucker = new RuiJieFucker();
+		mfFucker.send(UrlConsts.test_phone);
+	}
+}

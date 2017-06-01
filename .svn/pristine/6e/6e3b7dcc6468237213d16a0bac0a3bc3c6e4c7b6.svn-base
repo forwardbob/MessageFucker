@@ -1,0 +1,18 @@
+package cn.whitecao.MessageFucker;
+
+import org.junit.Test;
+
+import cn.whitecao.messagefucker.common.UrlConsts;
+import cn.whitecao.messagefucker.service.MessageFucker;
+import cn.whitecao.messagefucker.service.ruijie.RuiJieFucker;
+import cn.whitecao.messagefucker.util.HttpUtil;
+
+public class TestRuiJie {
+	@Test
+	public void test() {
+		String result = HttpUtil.sendPost(
+				"https://passport.coocaa.com/helper/send-mobile-img-valid",
+				"codeKey=&captcha=&mobile=15258801811");
+		System.err.println(result);
+	}
+}
